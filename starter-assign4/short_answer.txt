@@ -1,0 +1,59 @@
+Before submitting this file, make sure that there are no more TODO
+placeholders remaining in the file (and remove this comment too).
+
+Warmup
+------
+Q1. What is the value of `totalMoves` after stepping over the call to `moveTower` in `hanoiAnimation`?
+A1. The value of totalMoves after stepping over the call to moveTower is 15.
+
+Q2. What is the value of the `totalMoves` variable after stepping over the first recursive sub-call?
+(In other words, within `moveTower` and just after stepping over the first recursive sub-call
+to `moveTower` inside the `else` statement.)
+A2. The value of totalMoves is 7 after the first recursive sub call.
+
+Q3. After breaking at the base case of `moveTower` and then choosing Step Out, where do you end up?
+(What function are you in, and at what line number?)
+What is the value of the `totalMoves` variable at this point?
+A3. I end up in the moveTower fucntion on line 7. The value of totalMoves is 0 at this point.
+
+Q4. What is the smallest possible input that you used to trigger the bug in the program?
+A4. The smallest possible input that I used to trigger the bug was a vector of 1 (ie. {3}).
+
+Q5. Identify the one-character error in the code and explain why that bug causes the function
+to return the output you see when running on the minimal input you listed above.
+You should be able to specifically account for how the error causes the result to
+change from “completely correct” to “terribly wrong.”
+A5. The one character error in the code is on line 56 - sumSoFar += v[index] must be corrected to sumSoFar + [index].
+The latter correctly computes the updated value without changing the original sumSoFar value, while sumSoFar += v[index]
+changes the value of sumSoFar each time so that it holds a new value every time it gets executed.
+
+Predict
+-------
+Q6. In your own words, describe some of the specific drawbacks to using global variables
+and explain why a program-wide constant like keypad does not suffer from the same 
+drawbacks.
+A6. A global variable can be modified, changed, or break at any point in your functions, and there isn't
+any constraint checking to ensure that it remains constant throughout your program. Hence, a program-wide
+constant like keypad is ideal because its value can't be changed agter you initialize it.
+
+Voting power
+------------
+Q7.What is the Big O of `computePowerIndex`? Include your timing data and explain how it supports your reasoning.
+A7. The Big O runtime is 2^n. The time operation for the provided test took approximately 2.5 to 2.7 seconds.
+
+Q8. Use the Big O and timing data to estimate how long it would take to compute the power index for the 51 voting blocks in the U.S. Electoral College.
+A8. Since the Big O runtime is 2^n, when n = 51, it would take approximately 2.3 * 10^15 seconds, which is around 73,000 years.
+
+Redistrict
+----------
+Q9. A leader of a political party in your hometown learns you just took CS106B.
+They offer you a job working on cutting-edge software that applies algorithms to optimize
+gerrymandering during the process of redistricting.
+
+What questions might you ask about this job before making a decision? What might be the drawbacks?
+Which communities would be affected by the work you're doing?
+
+Please write your list of 3-5 questions and be sure to include ethical considerations.
+A9. 1) Which parts of the state have a large population of underrepresented groups?
+2) How do we ensure that the map proportionally reflect the political preferences of the population?
+3) Are the algorithms designed to reflect the geographic, social, and economic commonalities among the population?
